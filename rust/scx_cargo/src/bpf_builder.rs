@@ -378,7 +378,7 @@ impl BpfBuilder {
             with_clang_warnings(|| {
                 SkeletonBuilder::new()
                     .source(filename)
-                    .rustfmt("disable_rustfmt")
+                    .rustfmt(None)
                     .obj(&obj)
                     .clang(&self.clang.clang)
                     .clang_args(&self.cflags)
@@ -401,7 +401,7 @@ impl BpfBuilder {
             .obj(&linkobj)
             .clang(&self.clang.clang)
             .clang_args(&self.cflags)
-            .rustfmt("disable_rustfmt")
+            .rustfmt(None)
             .reference_obj(true)
             .generate(&skel_path)?;
 
@@ -431,7 +431,7 @@ impl BpfBuilder {
                 .obj(&obj)
                 .clang(&self.clang.clang)
                 .clang_args(&self.cflags)
-                .rustfmt("disable_rustfmt")
+                .rustfmt(None)
                 .reference_obj(true)
                 .build_and_generate(&skel_path)
         })?;
